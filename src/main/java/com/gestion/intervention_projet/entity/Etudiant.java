@@ -5,30 +5,40 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Collection;
+import java.util.List;
+
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "etudiants")
+@Table(name = "etudiant")
 public class Etudiant {
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long code;
 
-    @Column(name = "matricules")
+    @Column(name = "code_authentification")
+    private Long codeAut;
+
+    @Column(name = "matricule")
     private String matricule;
 
-    @Column(name = "nomEtudiant")
+    @Column(name = "nom")
     private String nomE;
 
-    @Column(name = "prenomEtudiant")
+    @Column(name = "prenom")
     private String prenomE;
 
-    @Column(name = "emailEtudiant")
+    @Column(name = "email")
     private String emailE;
 
-    @Column(name = "telEtudiant")
+    @Column(name = "telephone")
     private Long telE;
 
-    @Column(name = "filieres")
+    @Column(name = "filiere")
     private String filiere;
+
+//    @OneToOne(mappedBy = "etudiant", fetch = FetchType.LAZY)
+//    private List<Compte> comptes_l;
 }

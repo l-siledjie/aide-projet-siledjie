@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @RestController
 public class InterventionProjetApplication {
-	@CrossOrigin("/http://localhost:4200/")
+	@CrossOrigin("*")
 	@GetMapping()
 	public static void main(String[] args) {
 		SpringApplication.run(InterventionProjetApplication.class, args);

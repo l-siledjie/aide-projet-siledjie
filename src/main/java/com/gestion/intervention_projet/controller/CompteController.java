@@ -13,31 +13,31 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/compte")
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "*")
 @AllArgsConstructor
 public class CompteController {
 
     @Autowired
     private CompteRepository compteRepository;
 
-    @PostMapping("/login")
-    public ResponseEntity<?>   userLogin(@RequestBody Compte compteData)   {
+    @PostMapping("http://localhost:8087/compte/login")
+    public ResponseEntity<Compte>   userLogin(@RequestBody Compte compteData)   {
 
         Compte compte = new Compte();
             compteRepository.findById(compteData.getId());
         if(compte.getMdp().equals(compteData.getMdp()))
             return ResponseEntity.ok(compte);
 
-        return  (ResponseEntity<?>) ResponseEntity.internalServerError();
+        return  (ResponseEntity<Compte>) ResponseEntity.internalServerError();
     }
 
-    @PostMapping("/login-pro")
-    public ResponseEntity<?>    proLogin(@RequestBody Compte comptePro) {
+    @PostMapping("http://localhost:8087/compte/login-pro")
+    public ResponseEntity<Compte>    proLogin(@RequestBody Compte comptePro) {
         Compte compte = new Compte();
             compteRepository.findById(comptePro.getId());
         if(compte.getMdp().equals(comptePro.getMdp()))
             return ResponseEntity.ok(compte);
 
-        return (ResponseEntity<?>) ResponseEntity.internalServerError();
+        return (ResponseEntity<Compte>) ResponseEntity.internalServerError();
     }
 }

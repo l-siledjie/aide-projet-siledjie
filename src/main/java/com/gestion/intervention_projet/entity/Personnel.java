@@ -10,24 +10,23 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "staff")
+@Table(name = "utilisateur")
 public class Personnel {
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    @Column(name = "idPersonnel")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "code")
     private Long idP;
 
-    @Column(name = "nomPersonnel")
+    @Column(name = "nom")
     private String nomP;
 
-    @Column(name = "prenomPersonnel")
+    @Column(name = "prenom")
     private String prenomP;
 
-    @Column(name = "emailPersonnel")
+    @Column(name = "email")
     private String emailP;
 
-    @Column(name = "telPersonnel")
+    @Column(name = "telephone")
     private Long telP;
 
     @Column(name = "postes")
